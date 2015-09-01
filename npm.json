@@ -1,0 +1,16 @@
+
+{
+    "react": "^0.13.1",
+    "react-mixin": "^1.7.0",
+    "reacfamo": "^0.1.7-0",
+
+    "jss": "^2.1.3",
+    "jss-nested": "^0.1.8",
+    "jss-vendor-prefixer": "^0.2.2",
+    "jss-px": "^0.1.3",
+    "jss-extend": "^0.1.7",
+    "jss-camel-case": "^0.1.2",
+    "jss-props-sort": "^0.1.0",
+
+    "infamous-engine": "git+https://github.com/infamous/engine.git#infamous/webpack"
+}
