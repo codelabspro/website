@@ -22,7 +22,7 @@ class ExplodingTriangles {
         this.nodes = {};
         this.children = amount;
         this.simulation = new PhysicsEngine();
-        this.tDuration = 1200;
+        this.tDuration = 2000;
 
         var self = this;
 
@@ -132,7 +132,7 @@ class ExplodingTriangles {
                              deltaY =  self.nodes[payload.node._id].hit.y - payload.y;
 
                          if(deltaX < 20 && deltaX > -20 && deltaY < 20 && deltaY > -20){
-                             self.nodes[payload.node._id].sphere.setVelocity(deltaX*-12,deltaY*-12);
+                             self.nodes[payload.node._id].sphere.setVelocity(deltaX*-36,deltaY*-36);
                          }
                          self.nodes[payload.node._id].hit = {x: payload.x, y: payload.y};
 
@@ -159,15 +159,15 @@ class ExplodingTriangles {
                                          opacity: z,
                                          position: {x:left, y:top, z:z},
                                          t:{
-                                             transform : new Transitionable([0,0,0]),
+                                             transform : new Transitionable([-3.0,0,0]),
                                              opacity: new Transitionable(0.0)
                                          }});
 
-                this.nodes[node._id].t.opacity.delay(400).from(0.0).to(self.nodes[node._id].opacity, 'linear', 1600);
-                this.nodes[node._id].t.transform.delay(1200).from([0.5,0.5,0.5]).to([self.nodes[node._id].position.x,
+                this.nodes[node._id].t.opacity.from(0.0).to(self.nodes[node._id].opacity, 'outCubic', 1600);
+                this.nodes[node._id].t.transform.from([-3.0,0.5,0.5]).to([self.nodes[node._id].position.x,
                                                                    self.nodes[node._id].position.y,
                                                                    self.nodes[node._id].position.z],
-                                                                  'linear',
+                                                                  'outExpo',
                                                                    this.tDuration);
 
                 this.nodes[node._id].sphere.setVelocity(4,0);
@@ -331,13 +331,11 @@ class _Home {
     }
 
     onUpdate(time) {
-        if (time < 3100) {
             this.title.node.setOpacity(this.title.t.fade.get());
             this.title.node.setAlign(this.title.t.transformIn.get()[0], this.title.t.transformIn.get()[1], this.title.t.transformIn.get()[2]);
             //this.header.node.setAlign(this.header.t.get()[0], this.header.t.get()[1], this.header.t.get()[2]);
             this.footer.node.setAlign(this.footer.t.get()[0], this.footer.t.get()[1], this.footer.t.get()[2]);
             FamousEngine.requestUpdateOnNextTick(this);
-        }
     }
 }
 
