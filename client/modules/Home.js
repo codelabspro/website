@@ -26,15 +26,15 @@ class ExplodingTriangles {
 
         var self = this;
 
-        var graphNode = this.rootNode.addChild();
+        this.graphNode = this.rootNode.addChild();
 
-        graphNode.addComponent({
+        this.graphNode.addComponent({
             id: null,
             node: null,
             onMount: function (node) {
                 this.id = node.addComponent(this);
                 node.requestUpdate(this.id);
-                this.scalar = 64;
+                this.scalar = 72;
                 this.node = node;
 
             },
@@ -80,7 +80,7 @@ class ExplodingTriangles {
             }
         });
 
-        this.createGraph(18,18);
+        this.createGraph(24,24);
 
     }
 
