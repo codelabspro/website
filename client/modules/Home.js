@@ -204,7 +204,8 @@ class _Home {
         //     .setMountPoint(0.0, 0.0, 0.0)
         //     .setAlign(0.0, -1.0, 0.0)
         //     .setSizeMode(0, 1, 0)
-        //     .setAbsoluteSize(1.0, 40)
+        //     .setAbsoluteSize(window.innerWidth, 40)
+        //     .setProportionalSize(1.0, 40)
         //     .setOpacity(0.5);
         // this.header.elem = new DOMElement(this.header.node);
         // this.header.elem.setProperty('background-color', 'rgba(71,53,79,0.8)');
@@ -251,9 +252,11 @@ class _Home {
             .setOrigin(0.0, 1.0, 0.0)
             .setMountPoint(0.0, 1.0, 0.0)
             .setAlign(0.0, 2.0, 0.0)
-            .setSizeMode(1, 1)
+            .setSizeMode(0, 1)
             .setAbsoluteSize(window.innerWidth, 40)
+            .setProportionalSize(1.0, 40)
             .setOpacity(1.0);
+
 
         this.footer.engineButton = {};
         this.footer.engineButton.node = this.footer.node.addChild()
